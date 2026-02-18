@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marco Maraggi — LIMBO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0e0d10;
+      --bg2: #13111a;
+      --ink: #f0eee8;
+      --muted: #7a7680;
+      --accent: #9b7fff;
+      --accent2: #ff6eb4;
+      --border: #2a2535;
+      --serif: 'Barlow', sans-serif;
+      --mono: 'Space Mono', monospace;
+      --display: 'Bebas Neue', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 3rem;
+      background: rgba(14,13,16,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      animation: fadeDown 0.8s ease both;
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 3rem 4rem;
+      gap: 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-text { animation: fadeUp 1s ease 0.2s both; }
+
+    .hero-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+      font-family: var(--display);
+      font-size: clamp(5rem, 9vw, 9rem);
+      font-weight: 400;
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-alias {
+      font-family: var(--mono);
+      font-size: clamp(0.85rem, 1.5vw, 1rem);
+      font-weight: 700;
+      font-style: normal;
+      color: var(--accent2);
+      margin-bottom: 2rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      border-radius: 2px;
+    }
+
+    .hero-image {
+      animation: fadeUp 1s ease 0.5s both;
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-img-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero-img-placeholder::before {
+      content: '[ IMAGE ]';
+      font-size: 0.9rem;
+      color: var(--border);
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 6rem 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .section-title {
+      font-family: var(--display);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+
+    /* ── PORTFOLIO ── */
+    #portfolio {}
+
+    .portfolio-categories {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .cat-btn {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .cat-btn:hover, .cat-btn.active {
+      color: var(--ink);
+      border-bottom-color: var(--accent);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      group: true;
+    }
+
+    .portfolio-item img,
+    .portfolio-item .img-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .img-placeholder {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--border);
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .portfolio-item:hover img,
+    .portfolio-item:hover .img-placeholder {
+      transform: scale(1.03);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(14,13,16,0.95) 0%, transparent 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+
+    .portfolio-title {
+      font-family: var(--display);
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 0.2rem;
+      letter-spacing: 0.04em;
+    }
+
+    .portfolio-year {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+    }
+
+    /* Wide items */
+    .portfolio-item.wide {
+      grid-column: span 2;
+    }
+
+    .portfolio-item.wide img,
+    .portfolio-item.wide .img-placeholder {
+      aspect-ratio: 16/9;
+    }
+
+    /* ── PUBLISHED BOOKS ── */
+    .books-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+    .book-item {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .book-item.reverse { direction: rtl; }
+    .book-item.reverse > * { direction: ltr; }
+
+    .book-cover img,
+    .book-cover .img-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+    }
+
+    .book-info {}
+
+    .book-meta {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+
+    .book-title {
+      font-family: var(--display);
+      font-size: 2.5rem;
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      letter-spacing: 0.03em;
+    }
+
+    .book-publisher {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+    }
+
+    .book-desc {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    /* ── ABOUT ── */
+    #about .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text p:first-child {
+      font-size: 1.3rem;
+      color: var(--ink);
+      line-height: 1.7;
+    }
+
+    .about-skills {
+      margin-top: 2.5rem;
+    }
+
+    .skill-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .about-portrait {
+      position: sticky;
+      top: 6rem;
+    }
+
+    .about-portrait img,
+    .about-portrait .img-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+    }
+
+    .publications {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .pub-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    .pub-name { color: var(--ink); }
+
+    .pub-year {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    /* ── BLOG ── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .blog-card {
+      padding: 2rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      transition: border-color 0.3s;
+      cursor: pointer;
+    }
+
+    .blog-card:hover { border-color: var(--accent); }
+
+    .blog-date {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .blog-title {
+      font-family: var(--display);
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 0.8rem;
+      line-height: 1.1;
+      letter-spacing: 0.03em;
+    }
+
+    .blog-excerpt {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ── CONTACT ── */
+    #contact .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-text {
+      font-family: var(--display);
+      font-size: 2.8rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 2rem;
+      letter-spacing: 0.03em;
+    }
+
+    .contact-text em {
+      font-style: italic;
+      color: var(--accent2);
+    }
+
+    .contact-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .contact-details {}
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-item:first-child { border-top: 1px solid var(--border); }
+
+    .contact-type {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .contact-value {
+      font-size: 1.1rem;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-value:hover { color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      #home { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
+      .hero-image { display: none; }
+      section { padding: 4rem 1.5rem; }
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-item.wide { grid-column: span 2; }
+      .book-item { grid-template-columns: 1fr; }
+      .book-item.reverse { direction: ltr; }
+      #about .about-inner { grid-template-columns: 1fr; }
+      .about-portrait { display: none; }
+      #contact .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .blog-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-logo" href="#home">Marco Maraggi <span>/ LIMBO</span></a>
+  <ul class="nav-links">
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#books">Books</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="home">
+  <div class="hero-text">
+    <p class="hero-label">Comic Artist &amp; Illustrator — Italy</p>
+    <h1 class="hero-name">Marco<br>Maraggi</h1>
+    <p class="hero-alias">a.k.a. LIMBO</p>
+    <p class="hero-desc">
+      I create comics and illustrations rooted in science fiction, cyberpunk, and psychedelic aesthetics — blending cinematic pacing with immersive color worlds. Published internationally by Prestel and Thames &amp; Hudson.
+    </p>
+    <div class="hero-tags">
+      <span class="tag">Comics</span>
+      <span class="tag">Illustration</span>
+      <span class="tag">Inking</span>
+      <span class="tag">Coloring</span>
+      <span class="tag">Sci-Fi</span>
+      <span class="tag">Cyberpunk</span>
+    </div>
+  </div>
+  <div class="hero-image">
+    <!--
+      ISTRUZIONI: sostituisci il div .hero-img-placeholder con:
+      <img src="images/hero.jpg" alt="Marco Maraggi LIMBO illustration" />
+      Consigliamo: la cover del portfolio con il personaggio cyberpunk
+    -->
+    <div class="hero-img-placeholder">
+      Inserisci qui la tua immagine hero<br>
+      (es: il personaggio con gli occhiali rosa)
+    </div>
+  </div>
+</section>
+
+<!-- ── PORTFOLIO ── -->
+<section id="portfolio">
+  <div class="section-header">
+    <span class="section-label">Selected Work</span>
+    <h2 class="section-title">Illustrations</h2>
+  </div>
+
+  <!--
+    ISTRUZIONI PORTFOLIO:
+    Per ogni portfolio-item:
+    1. Sostituisci .img-placeholder con <img src="images/NOMEFILE.jpg" alt="..." />
+    2. Aggiorna .portfolio-title e .portfolio-year
+    Mantieni la struttura della griglia così com'è.
+  -->
+
+  <div class="portfolio-grid">
+
+    <div class="portfolio-item wide">
+      <div class="img-placeholder">
+        Secret Room of Time and Memory<br>2022<br>[ immagine grande ]
+      </div>
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">Secret Room of Time and Memory</p>
+        <p class="portfolio-year">2022</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="img-placeholder">At Art's End<br>2023</div>
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">At Art's End</p>
+        <p class="portfolio-year">2023</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="img-placeholder">Medea's Strange Dreams<br>2023</div>
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">Medea's Strange Dreams</p>
+        <p class="portfolio-year">2023</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="img-placeholder">Ophelia's Strange Room<br>2023</div>
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">Ophelia's Strange Room</p>
+        <p class="portfolio-year">2023</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item wide">
+      <div class="img-placeholder">
+        Ecstasy<br>2023<br>[ immagine grande ]
+      </div>
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">Ecstasy</p>
+        <p class="portfolio-year">2023</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="img-placeholder">Prototype Angel<br>2022</div>
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">Prototype Angel</p>
+        <p class="portfolio-year">2022</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="img-placeholder">Nebula<br>2022</div>
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">Nebula</p>
+        <p class="portfolio-year">2022</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="img-placeholder">Altered Memories Inc<br>2022</div>
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">Altered Memories Inc</p>
+        <p class="portfolio-year">2022</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="img-placeholder">Data Resurrection Machine<br>2022</div>
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">Data Resurrection Machine</p>
+        <p class="portfolio-year">2022</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="img-placeholder">Spiral of Time and Memory<br>2022</div>
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">Spiral of Time and Memory</p>
+        <p class="portfolio-year">2022</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="img-placeholder">Cyber Devil Aoi<br>2022</div>
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">Cyber Devil Aoi</p>
+        <p class="portfolio-year">2022</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="img-placeholder">Alien Consciousness<br>2022</div>
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">Alien Consciousness</p>
+        <p class="portfolio-year">2022</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ORIGINAL COMICS SECTION -->
+  <div class="section-header" style="margin-top: 5rem;">
+    <span class="section-label">Comics</span>
+    <h2 class="section-title">Original Projects</h2>
+  </div>
+
+  <div class="portfolio-grid">
+
+    <div class="portfolio-item">
+      <div class="img-placeholder">The Earworm — Cover<br>2025</div>
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">The Earworm</p>
+        <p class="portfolio-year">2025 — Original Sci-Fi Comic</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="img-placeholder">The Earworm — Interior Page 1<br>2025</div>
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">The Earworm — Interior</p>
+        <p class="portfolio-year">2025</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="img-placeholder">Vega's Revenge<br>2025</div>
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">Vega's Revenge</p>
+        <p class="portfolio-year">2025 — Character Design &amp; Comic</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- LAST DROP SECTION -->
+  <div class="section-header" style="margin-top: 5rem;">
+    <span class="section-label">MuseInk · Writer: Roach</span>
+    <h2 class="section-title">Last Drop</h2>
+  </div>
+  <p style="color: var(--muted); font-size: 1rem; max-width: 600px; margin-bottom: 3rem; line-height: 1.8;">
+    A cyberpunk noir comic produced with MuseInk, written by Roach. Art, inking and coloring by Marco Maraggi.
+  </p>
+
+  <div class="portfolio-grid">
+
+    <div class="portfolio-item wide">
+      <!--
+        Sostituisci con:
+        <img src="images/lastdrop-p1.jpg" alt="Last Drop page 1" />
+        (Pagina 1 — la città cyberpunk dall'alto)
+      -->
+      <div class="img-placeholder">Last Drop — Pag. 1<br>Città cyberpunk · [ immagine grande ]</div>
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">Last Drop — Page 1</p>
+        <p class="portfolio-year">MuseInk · Writer: Roach</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <!--
+        <img src="images/lastdrop-p3.jpg" alt="Last Drop page 3" />
+        (Pagina 3 — il diner con i personaggi)
+      -->
+      <div class="img-placeholder">Last Drop — Pag. 3<br>Diner scene</div>
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">Last Drop — Page 3</p>
+        <p class="portfolio-year">MuseInk · Writer: Roach</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <!--
+        <img src="images/lastdrop-p7.jpg" alt="Last Drop page 7" />
+        (Pagina 7 — azione con il demone blu)
+      -->
+      <div class="img-placeholder">Last Drop — Pag. 7<br>Demone blu / azione</div>
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">Last Drop — Page 7</p>
+        <p class="portfolio-year">MuseInk · Writer: Roach</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item wide">
+      <!--
+        <img src="images/lastdrop-p10.jpg" alt="Last Drop page 10" />
+        (Pagina 10 — i mostri tentacolari, la più spettacolare)
+      -->
+      <div class="img-placeholder">Last Drop — Pag. 10<br>Mostri tentacolari · [ immagine grande ]</div>
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">Last Drop — Page 10</p>
+        <p class="portfolio-year">MuseInk · Writer: Roach</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <!--
+        <img src="images/lastdrop-p12.jpg" alt="Last Drop page 12" />
+        (Pagina 12 — full page finale)
+      -->
+      <div class="img-placeholder">Last Drop — Pag. 12<br>Full page finale</div>
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">Last Drop — Page 12</p>
+        <p class="portfolio-year">MuseInk · Writer: Roach</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── PUBLISHED BOOKS ── -->
+<section id="books">
+  <div class="section-header">
+    <span class="section-label">Published Work</span>
+    <h2 class="section-title">Books</h2>
+  </div>
+
+  <div class="books-list">
+
+    <div class="book-item">
+      <div class="book-cover">
+        <!--
+          Sostituisci con:
+          <img src="images/banksy-cover.jpg" alt="His Name Is Banksy" />
+        -->
+        <div class="img-placeholder">His Name Is Banksy<br>[ copertina ]</div>
+      </div>
+      <div class="book-info">
+        <p class="book-meta">Comic Book · 2022</p>
+        <h3 class="book-title">His Name Is Banksy</h3>
+        <p class="book-publisher">Prestel Publishing · Published in Italy, UK, USA, France, Poland, Spain, Czech Republic</p>
+        <p class="book-desc">A graphic biography of the world's most elusive street artist. Two young Londoners, caught spray-painting graffiti, trace the arc of Banksy's career through the streets of London — uncovering his politically charged art and the radical idea that art is for everyone.</p>
+      </div>
+    </div>
+
+    <div class="book-item reverse">
+      <div class="book-cover">
+        <div class="img-placeholder">Andy Warhol: A Graphic Biography<br>[ copertina ]</div>
+      </div>
+      <div class="book-info">
+        <p class="book-meta">Comic Book · 2024</p>
+        <h3 class="book-title">Andy Warhol:<br>A Graphic Biography</h3>
+        <p class="book-publisher">Larousse / Thames &amp; Hudson · Published internationally</p>
+        <p class="book-desc">From Pittsburgh to Factory, this graphic biography follows Warhol through his career in advertising, his rise as a pop art icon, and his restless reinvention as an artist. A visual deep-dive into one of the most complex figures of modern art.</p>
+      </div>
+    </div>
+
+    <div class="book-item">
+      <div class="book-cover">
+        <div class="img-placeholder">Stream of Consciousness: Lana Del Rey<br>[ cover — Tank Magazine ]</div>
+      </div>
+      <div class="book-info">
+        <p class="book-meta">Comic Issue · Tank Magazine · 2024</p>
+        <h3 class="book-title">Stream of Consciousness:<br>Lana Del Rey and the Immediancy Paradigm</h3>
+        <p class="book-publisher">Tank Magazine (UK)</p>
+        <p class="book-desc">A short comic tracing the life and career of Lana Del Rey, portraying her artistic evolution through evocative illustrations and dreamlike atmospheres. Published in the British fashion and culture magazine Tank.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-label">Artist</span>
+    <h2 class="section-title">About</h2>
+  </div>
+
+  <div class="about-inner">
+    <div class="about-text">
+      <p>
+        I'm Marco Maraggi — comic book artist and illustrator working under the alias LIMBO, based in Italy. I graduated in Sequential Art from the International School of Comics in 2018.
+      </p>
+      <p>
+        My work spans graphic novels, illustrated biographies, album artwork, and editorial illustration. I'm particularly drawn to science fiction, cyberpunk, and psychedelic aesthetics — building immersive color worlds and narrative atmospheres that sit somewhere between the futuristic and the surreal.
+      </p>
+      <p>
+        I've worked on graphic biographies of Banksy, Andy Warhol, and Harry Styles. I illustrated a comic book manual by Balthazar Pagani, co-illustrated with Otto Gabos. In 2023, one of my illustrations was exhibited in New York City at the SuperRare NYC gallery. I've collaborated with Tank Magazine (UK), and my books have been published across Italy, Poland, France, England, the United States, the Czech Republic, and Spain.
+      </p>
+      <p>
+        Beyond my own projects, I'm available as a colorist and inker for comics and sequential art projects.
+      </p>
+
+      <div class="about-skills">
+        <p class="skill-label">Skills</p>
+        <div class="skills-tags">
+          <span class="tag">Comic Book Art</span>
+          <span class="tag">Digital Illustration</span>
+          <span class="tag">Inking</span>
+          <span class="tag">Coloring</span>
+          <span class="tag">Character Design</span>
+          <span class="tag">Sequential Art</span>
+          <span class="tag">Cover Art</span>
+          <span class="tag">Editorial Illustration</span>
+        </div>
+      </div>
+
+      <div class="publications">
+        <p class="skill-label" style="margin-bottom:0;">Selected Publications</p>
+        <div class="pub-item">
+          <span class="pub-name">His Name Is Banksy — Prestel Publishing</span>
+          <span class="pub-year">2022</span>
+        </div>
+        <div class="pub-item">
+          <span class="pub-name">Andy Warhol: A Graphic Biography — Larousse / Thames &amp; Hudson</span>
+          <span class="pub-year">2024</span>
+        </div>
+        <div class="pub-item">
+          <span class="pub-name">Stream of Consciousness — Tank Magazine (UK)</span>
+          <span class="pub-year">2024</span>
+        </div>
+        <div class="pub-item">
+          <span class="pub-name">SuperRare NYC Gallery Exhibition</span>
+          <span class="pub-year">2023</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-portrait">
+      <!--
+        Sostituisci con un tuo ritratto o con un'illustrazione self-portrait:
+        <img src="images/portrait.jpg" alt="Marco Maraggi" />
+        Consiglio: usa il "Self Portrait" del portfolio (2022)
+      -->
+      <div class="img-placeholder">
+        Inserisci qui la tua foto<br>o il Self Portrait 2022
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BLOG / NEWS ── -->
+<section id="blog">
+  <div class="section-header">
+    <span class="section-label">Updates</span>
+    <h2 class="section-title">Blog / News</h2>
+  </div>
+
+  <!--
+    ISTRUZIONI BLOG:
+    Puoi aggiornare queste card con i tuoi post/news.
+    Per ora sono placeholder — modificale a piacere.
+  -->
+  <div class="blog-grid">
+
+    <div class="blog-card">
+      <p class="blog-date">2025 — New Project</p>
+      <h3 class="blog-title">The Earworm is complete</h3>
+      <p class="blog-excerpt">My original sci-fi short comic is finished. A full-color single issue exploring sound, consciousness, and alien worlds. More soon.</p>
+    </div>
+
+    <div class="blog-card">
+      <p class="blog-date">2024 — Published</p>
+      <h3 class="blog-title">Andy Warhol: A Graphic Biography out now</h3>
+      <p class="blog-excerpt">The graphic biography of Andy Warhol, published by Larousse and distributed internationally through Thames &amp; Hudson, is now available worldwide.</p>
+    </div>
+
+    <div class="blog-card">
+      <p class="blog-date">2024 — Editorial</p>
+      <h3 class="blog-title">Lana Del Rey comic published in Tank Magazine</h3>
+      <p class="blog-excerpt">A short comic about Lana Del Rey's artistic evolution appeared in the British fashion and culture magazine Tank.</p>
+    </div>
+
+    <div class="blog-card">
+      <p class="blog-date">2023 — Exhibition</p>
+      <h3 class="blog-title">Exhibited at SuperRare NYC</h3>
+      <p class="blog-excerpt">One of my digital illustrations was exhibited in New York City at the SuperRare NYC gallery. A milestone for the LIMBO project.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="section-header">
+    <span class="section-label">Get in touch</span>
+    <h2 class="section-title">Contact</h2>
+  </div>
+
+  <div class="contact-inner">
+    <div>
+      <p class="contact-text">
+        Available for <em>illustration</em>, <em>comics</em>, <em>inking</em> and <em>coloring</em> projects.
+      </p>
+      <p class="contact-note">
+        Based in Italy, working internationally. Open to editorial illustration, graphic novel projects, cover art, and coloring / inking collaborations.
+      </p>
+    </div>
+
+    <div class="contact-details">
+      <div class="contact-item">
+        <span class="contact-type">Email</span>
+        <a class="contact-value" href="mailto:marcomaraggi@gmail.com">marcomaraggi@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-type">Instagram</span>
+        <a class="contact-value" href="https://instagram.com/limbo_illustration" target="_blank">@limbo_illustration</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-type">Twitter / X</span>
+        <a class="contact-value" href="https://twitter.com/Limbouniverse" target="_blank">@Limbouniverse</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-type">Phone</span>
+        <a class="contact-value" href="tel:+393407396978">+39 340 739 6978</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p class="footer-copy">© 2025 Marco Maraggi — LIMBO. All rights reserved.</p>
+  <p class="footer-copy">limbouniverse.com</p>
+</footer>
+
+</body>
+</html>
