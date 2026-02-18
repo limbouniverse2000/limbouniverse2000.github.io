@@ -640,15 +640,7 @@
     </div>
   </div>
   <div class="hero-image">
-    <!--
-      ISTRUZIONI: sostituisci il div .hero-img-placeholder con:
-      <img src="hero.jpg" alt="Marco Maraggi LIMBO illustration" />
-      Consigliamo: la cover del portfolio con il personaggio cyberpunk
-    -->
-    <div class="hero-img-placeholder">
-      Inserisci qui la tua immagine hero<br>
-      (es: il personaggio con gli occhiali rosa)
-    </div>
+    <img src="Themagician.jpg" alt="The Magician — Marco Maraggi LIMBO" />
   </div>
 </section>
 
@@ -1062,6 +1054,35 @@
   <p class="footer-copy">© 2025 Marco Maraggi — LIMBO. All rights reserved.</p>
   <p class="footer-copy">limbouniverse.com</p>
 </footer>
+
+<!-- ── LIGHTBOX ── -->
+<div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.92); z-index:9999; cursor:zoom-out; align-items:center; justify-content:center;">
+  <img id="lightbox-img" src="" style="max-width:90vw; max-height:90vh; object-fit:contain; border-radius:4px;" />
+  <button onclick="closeLightbox()" style="position:fixed; top:1.5rem; right:2rem; background:none; border:none; color:white; font-size:2.5rem; cursor:pointer; line-height:1;">×</button>
+</div>
+
+<script>
+  function openLightbox(src) {
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lightbox-img').src = src;
+    lb.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target !== document.getElementById('lightbox-img')) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+  document.querySelectorAll('.portfolio-item img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', function() { openLightbox(this.src); });
+  });
+</script>
 
 </body>
 </html>
