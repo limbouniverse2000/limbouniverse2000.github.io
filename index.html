@@ -614,7 +614,8 @@
 <nav>
   <a class="nav-logo" href="#home">Marco Maraggi <span>/ LIMBO</span></a>
   <ul class="nav-links">
-    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#covers">Covers</a></li>
+      <li><a href="#portfolio">Work</a></li>
     <li><a href="#books">Books</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -644,6 +645,31 @@
   </div>
 </section>
 
+<!-- ── COVER ARTIST WORK ── -->
+<section id="covers">
+  <div class="section-header">
+    <span class="section-label">Cover Artist</span>
+    <h2 class="section-title">Cover Artist Work</h2>
+  </div>
+
+  <div class="portfolio-grid">
+
+    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" >
+      <img src="FanguaryCover.jpg" alt="Fanguary — Lifeline Comics" />
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">Fanguary</p>
+        <p class="portfolio-year">2025 — Kickstarter-Exclusive Metal Cover · Lifeline Comics NYC</p>
+      </div>
+    </div>
+
+  </div>
+
+  <p style="color: var(--muted); font-size: 1rem; max-width: 700px; margin-top: 2rem; margin-bottom: 0; line-height: 1.8;">
+    FANGuary is Lifeline Comics' annual Vampire January initiative — three simultaneous queer vampire Kickstarter campaigns. This cover was produced as a limited-edition metal variant, exclusively available to backers who supported all three campaigns: <em>The Beast &amp; Snow #1–4</em>, <em>Love at Second Bite #1</em>, and <em>Sink Your Teeth In #1</em>.
+  </p>
+
+</section>
+
 <!-- ── PORTFOLIO ── -->
 <section id="portfolio">
   <div class="section-header">
@@ -669,7 +695,7 @@
       </div>
     </div>
 
-    <div class="portfolio-item wide" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" >
+<div class="portfolio-item wide" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" >
       <img src="secretroom.jpg" alt="Secret Room of Time and Memory" />
       <div class="portfolio-overlay">
         <p class="portfolio-title">Secret Room of Time and Memory</p>
@@ -750,6 +776,14 @@
     </div>
 
     <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" >
+      <img src="vortexattheedgeofdawn.jpg" alt="Vortex at the Edge of Dawn" />
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">Vortex at the Edge of Dawn</p>
+        <p class="portfolio-year">2024</p>
+      </div>
+    </div>
+
+        <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" >
       <img src="AlienConsciousness.jpg" alt="Alien Consciousness" />
       <div class="portfolio-overlay">
         <p class="portfolio-title">Alien Consciousness</p>
@@ -807,24 +841,6 @@
       <div class="portfolio-overlay">
         <p class="portfolio-title">Last Drop — Page 12</p>
         <p class="portfolio-year">MuseInk · Writer: Roach</p>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ORIGINAL COMICS SECTION -->
-  <div class="section-header" style="margin-top: 5rem;">
-    <span class="section-label">Comics</span>
-    <h2 class="section-title">Original Projects</h2>
-  </div>
-
-  <div class="portfolio-grid">
-
-    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" >
-      <img src="vega's character designs.jpg" alt="Vega's Revenge — Character Designs" />
-      <div class="portfolio-overlay">
-        <p class="portfolio-title">Vega's Revenge</p>
-        <p class="portfolio-year">2025 — Concept Art, Inking &amp; Colors · Story by Michele Botton · Pencils by Pietro Sartori</p>
       </div>
     </div>
 
@@ -940,7 +956,7 @@
     <div class="about-portrait">
       <!--
         Sostituisci con un tuo ritratto o con un'illustrazione self-portrait:
-        <img src="portrait.jpg" alt="Marco Maraggi" />
+        <img src="marcomaraggifoto.jpg" alt="Marco Maraggi" />
         Consiglio: usa il "Self Portrait" del portfolio (2022)
       -->
       <div class="img-placeholder">
