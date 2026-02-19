@@ -617,7 +617,6 @@
     <li><a href="#portfolio">Work</a></li>
     <li><a href="#books">Books</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#blog">Blog</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -661,6 +660,14 @@
   -->
 
   <div class="portfolio-grid">
+
+    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" >
+      <img src="whereIvebeenwhileaway.jpg" alt="Where I've Been While Away" />
+      <div class="portfolio-overlay">
+        <p class="portfolio-title">Where I've Been While Away</p>
+        <p class="portfolio-year">2025</p>
+      </div>
+    </div>
 
     <div class="portfolio-item wide" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" >
       <img src="secretroom.jpg" alt="Secret Room of Time and Memory" />
@@ -726,15 +733,7 @@
       </div>
     </div>
 
-    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" >
-      <div class="img-placeholder">Data Resurrection Machine<br>2022</div>
-      <div class="portfolio-overlay">
-        <p class="portfolio-title">Data Resurrection Machine</p>
-        <p class="portfolio-year">2022</p>
-      </div>
-    </div>
-
-    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" >
+<div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" >
       <img src="Themagician.jpg" alt="The Magician" />
       <div class="portfolio-overlay">
         <p class="portfolio-title">The Magician</p>
@@ -822,26 +821,10 @@
   <div class="portfolio-grid">
 
     <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" >
-      <div class="img-placeholder">The Earworm — Cover<br>2025</div>
-      <div class="portfolio-overlay">
-        <p class="portfolio-title">The Earworm</p>
-        <p class="portfolio-year">2025 — Original Sci-Fi Comic</p>
-      </div>
-    </div>
-
-    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" >
-      <div class="img-placeholder">The Earworm — Interior Page<br>2025</div>
-      <div class="portfolio-overlay">
-        <p class="portfolio-title">The Earworm — Interior</p>
-        <p class="portfolio-year">2025</p>
-      </div>
-    </div>
-
-    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" >
-      <div class="img-placeholder">Vega's Revenge<br>2025</div>
+      <img src="vega's character designs.jpg" alt="Vega's Revenge — Character Designs" />
       <div class="portfolio-overlay">
         <p class="portfolio-title">Vega's Revenge</p>
-        <p class="portfolio-year">2025 — Character Design &amp; Comic</p>
+        <p class="portfolio-year">2025 — Concept Art, Inking &amp; Colors · Story by Michele Botton · Pencils by Pietro Sartori</p>
       </div>
     </div>
 
@@ -860,7 +843,7 @@
 
     <div class="book-item">
       <div class="book-cover">
-        <img src="banksycover.jpg" alt="His Name Is Banksy" />
+        <img src="Banksycover.jpg" alt="His Name Is Banksy" />
       </div>
       <div class="book-info">
         <p class="book-meta">Comic Book · 2022</p>
@@ -872,7 +855,7 @@
 
     <div class="book-item reverse">
       <div class="book-cover">
-        <div class="img-placeholder">Andy Warhol: A Graphic Biography<br>[ copertina ]</div>
+        <img src="wahrolcover.jpeg" alt="Andy Warhol: A Graphic Biography" />
       </div>
       <div class="book-info">
         <p class="book-meta">Comic Book · 2024</p>
@@ -884,7 +867,7 @@
 
     <div class="book-item">
       <div class="book-cover">
-        <div class="img-placeholder">Stream of Consciousness: Lana Del Rey<br>[ cover — Tank Magazine ]</div>
+        <img src="Lanacover.jpg" alt="Stream of Consciousness: Lana Del Rey — Tank Magazine" />
       </div>
       <div class="book-info">
         <p class="book-meta">Comic Issue · Tank Magazine · 2024</p>
@@ -968,45 +951,6 @@
 </section>
 
 <!-- ── BLOG / NEWS ── -->
-<section id="blog">
-  <div class="section-header">
-    <span class="section-label">Updates</span>
-    <h2 class="section-title">Blog / News</h2>
-  </div>
-
-  <!--
-    ISTRUZIONI BLOG:
-    Puoi aggiornare queste card con i tuoi post/news.
-    Per ora sono placeholder — modificale a piacere.
-  -->
-  <div class="blog-grid">
-
-    <div class="blog-card">
-      <p class="blog-date">2025 — New Project</p>
-      <h3 class="blog-title">The Earworm is complete</h3>
-      <p class="blog-excerpt">My original sci-fi short comic is finished. A full-color single issue exploring sound, consciousness, and alien worlds. More soon.</p>
-    </div>
-
-    <div class="blog-card">
-      <p class="blog-date">2024 — Published</p>
-      <h3 class="blog-title">Andy Warhol: A Graphic Biography out now</h3>
-      <p class="blog-excerpt">The graphic biography of Andy Warhol, published by Larousse and distributed internationally through Thames &amp; Hudson, is now available worldwide.</p>
-    </div>
-
-    <div class="blog-card">
-      <p class="blog-date">2024 — Editorial</p>
-      <h3 class="blog-title">Lana Del Rey comic published in Tank Magazine</h3>
-      <p class="blog-excerpt">A short comic about Lana Del Rey's artistic evolution appeared in the British fashion and culture magazine Tank.</p>
-    </div>
-
-    <div class="blog-card">
-      <p class="blog-date">2023 — Exhibition</p>
-      <h3 class="blog-title">Exhibited at SuperRare NYC</h3>
-      <p class="blog-excerpt">One of my digital illustrations was exhibited in New York City at the SuperRare NYC gallery. A milestone for the LIMBO project.</p>
-    </div>
-
-  </div>
-</section>
 
 <!-- ── CONTACT ── -->
 <section id="contact">
