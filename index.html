@@ -703,7 +703,7 @@
     </div>
 
     <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" >
-      <img src="prototypeangel.jpg" alt="Prototype Angel" />
+      <img src="images/prototypeangel.jpg" alt="Prototype Angel" />
       <div class="portfolio-overlay">
         <p class="portfolio-title">Prototype Angel</p>
         <p class="portfolio-year">2022</p>
@@ -860,11 +860,7 @@
 
     <div class="book-item">
       <div class="book-cover">
-        <!--
-          Sostituisci con:
-          <img src="banksycover.jpg" alt="His Name Is Banksy" />
-        -->
-        <div class="img-placeholder">His Name Is Banksy<br>[ copertina ]</div>
+        <img src="images/banksycover.jpg" alt="His Name Is Banksy" />
       </div>
       <div class="book-info">
         <p class="book-meta">Comic Book · 2022</p>
@@ -1032,7 +1028,7 @@
     <div class="contact-details">
       <div class="contact-item">
         <span class="contact-type">Email</span>
-        <a class="contact-value" href="mailto:marcomaraggi@gmail.com">marcomaraggi@gmail.com</a>
+        <a class="contact-value" href="/cdn-cgi/l/email-protection#74191506171b1915061513131d341319151d185a171b19"><span class="__cf_email__" data-cfemail="e5888497868a8884978482828ca58288848c89cb868a88">[email&#160;protected]</span></a>
       </div>
       <div class="contact-item">
         <span class="contact-type">Instagram</span>
@@ -1062,7 +1058,7 @@
   <span onclick="document.getElementById('lightbox').style.display='none'; document.body.style.overflow='';" style="position:fixed; top:1rem; right:1.5rem; color:#fff; font-size:3rem; cursor:pointer; line-height:1; user-select:none;">×</span>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('lightbox').addEventListener('click', function(e) {
     if (e.target === this) {
@@ -1081,15 +1077,4 @@ document.addEventListener('DOMContentLoaded', function() {
   var imgs = document.querySelectorAll('.portfolio-item img');
   for (var i = 0; i < imgs.length; i++) {
     
-    imgs[i].onclick = function() {
-      var lb = document.getElementById('lightbox');
-      document.getElementById('lightbox-img').src = this.src;
-      lb.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    };
-  }
-});
-</script>
-
-</body>
-</html>
+    imgs[i].onclick = 
