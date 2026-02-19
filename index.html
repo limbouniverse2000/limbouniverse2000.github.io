@@ -297,6 +297,7 @@
       padding: 1.5rem;
       opacity: 0;
       transition: opacity 0.3s;
+      pointer-events: none;
     }
 
     .portfolio-item:hover .portfolio-overlay { opacity: 1; }
@@ -654,54 +655,54 @@
   <!--
     ISTRUZIONI PORTFOLIO:
     Per ogni portfolio-item:
-    1. Sostituisci .img-placeholder con <img src="NOMEFILE.jpg" alt="..."  onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';" style="cursor:zoom-in;"/>
+    1. Sostituisci .img-placeholder con <img src="NOMEFILE.jpg" alt="..." />
     2. Aggiorna .portfolio-title e .portfolio-year
     Mantieni la struttura della griglia così com'è.
   -->
 
   <div class="portfolio-grid">
 
-    <div class="portfolio-item wide">
-      <img src="secretroom.jpg" alt="Secret Room of Time and Memory"  onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';" style="cursor:zoom-in;"/>
+    <div class="portfolio-item wide" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" style="cursor:zoom-in;">
+      <img src="secretroom.jpg" alt="Secret Room of Time and Memory" />
       <div class="portfolio-overlay">
         <p class="portfolio-title">Secret Room of Time and Memory</p>
         <p class="portfolio-year">2022</p>
       </div>
     </div>
 
-    <div class="portfolio-item">
-      <img src="atart'send.jpg" alt="At Art's End"  onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';" style="cursor:zoom-in;"/>
+    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" style="cursor:zoom-in;">
+      <img src="atart'send.jpg" alt="At Art's End" />
       <div class="portfolio-overlay">
         <p class="portfolio-title">At Art's End</p>
         <p class="portfolio-year">2023</p>
       </div>
     </div>
 
-    <div class="portfolio-item">
-      <img src="Medea's_Room.jpg" alt="Medea's Strange Dreams"  onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';" style="cursor:zoom-in;"/>
+    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" style="cursor:zoom-in;">
+      <img src="Medea's_Room.jpg" alt="Medea's Strange Dreams" />
       <div class="portfolio-overlay">
         <p class="portfolio-title">Medea's Strange Dreams</p>
         <p class="portfolio-year">2023</p>
       </div>
     </div>
 
-    <div class="portfolio-item">
-      <img src="Ophelia's_Room.jpg" alt="Ophelia's Strange Room"  onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';" style="cursor:zoom-in;"/>
+    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" style="cursor:zoom-in;">
+      <img src="Ophelia's_Room.jpg" alt="Ophelia's Strange Room" />
       <div class="portfolio-overlay">
         <p class="portfolio-title">Ophelia's Strange Room</p>
         <p class="portfolio-year">2023</p>
       </div>
     </div>
 
-    <div class="portfolio-item wide">
-      <img src="ecstasy.jpg" alt="Ecstasy"  onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';" style="cursor:zoom-in;"/>
+    <div class="portfolio-item wide" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" style="cursor:zoom-in;">
+      <img src="ecstasy.jpg" alt="Ecstasy" />
       <div class="portfolio-overlay">
         <p class="portfolio-title">Ecstasy</p>
         <p class="portfolio-year">2023</p>
       </div>
     </div>
 
-    <div class="portfolio-item">
+    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" style="cursor:zoom-in;">
       <div class="img-placeholder">Prototype Angel<br>2022</div>
       <div class="portfolio-overlay">
         <p class="portfolio-title">Prototype Angel</p>
@@ -709,23 +710,23 @@
       </div>
     </div>
 
-    <div class="portfolio-item">
-      <img src="Nebulabigger.jpg" alt="Nebula"  onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';" style="cursor:zoom-in;"/>
+    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" style="cursor:zoom-in;">
+      <img src="Nebulabigger.jpg" alt="Nebula" />
       <div class="portfolio-overlay">
         <p class="portfolio-title">Nebula: The Stars Are Collapsing</p>
         <p class="portfolio-year">2022</p>
       </div>
     </div>
 
-    <div class="portfolio-item">
-      <img src="alteredmemoriesinc.jpg" alt="Altered Memories Inc"  onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';" style="cursor:zoom-in;"/>
+    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" style="cursor:zoom-in;">
+      <img src="alteredmemoriesinc.jpg" alt="Altered Memories Inc" />
       <div class="portfolio-overlay">
         <p class="portfolio-title">Altered Memories Inc</p>
         <p class="portfolio-year">2022</p>
       </div>
     </div>
 
-    <div class="portfolio-item">
+    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" style="cursor:zoom-in;">
       <div class="img-placeholder">Data Resurrection Machine<br>2022</div>
       <div class="portfolio-overlay">
         <p class="portfolio-title">Data Resurrection Machine</p>
@@ -733,7 +734,7 @@
       </div>
     </div>
 
-    <div class="portfolio-item">
+    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" style="cursor:zoom-in;">
       <img src="Themagician.jpg" alt="The Magician" />
       <div class="portfolio-overlay">
         <p class="portfolio-title">The Magician</p>
@@ -741,7 +742,7 @@
       </div>
     </div>
 
-    <div class="portfolio-item">
+    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" style="cursor:zoom-in;">
       <div class="img-placeholder">Cyber Devil Aoi<br>2022</div>
       <div class="portfolio-overlay">
         <p class="portfolio-title">Cyber Devil Aoi</p>
@@ -749,7 +750,7 @@
       </div>
     </div>
 
-    <div class="portfolio-item">
+    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" style="cursor:zoom-in;">
       <div class="img-placeholder">Alien Consciousness<br>2022</div>
       <div class="portfolio-overlay">
         <p class="portfolio-title">Alien Consciousness</p>
@@ -770,40 +771,40 @@
 
   <div class="portfolio-grid">
 
-    <div class="portfolio-item wide">
-      <img src="1.jpg" alt="Last Drop page 1"  onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';" style="cursor:zoom-in;"/>
+    <div class="portfolio-item wide" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" style="cursor:zoom-in;">
+      <img src="1.jpg" alt="Last Drop page 1" />
       <div class="portfolio-overlay">
         <p class="portfolio-title">Last Drop — Page 1</p>
         <p class="portfolio-year">MuseInk · Writer: Roach</p>
       </div>
     </div>
 
-    <div class="portfolio-item">
-      <img src="3.jpg" alt="Last Drop page 3"  onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';" style="cursor:zoom-in;"/>
+    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" style="cursor:zoom-in;">
+      <img src="3.jpg" alt="Last Drop page 3" />
       <div class="portfolio-overlay">
         <p class="portfolio-title">Last Drop — Page 3</p>
         <p class="portfolio-year">MuseInk · Writer: Roach</p>
       </div>
     </div>
 
-    <div class="portfolio-item">
-      <img src="7.jpg" alt="Last Drop page 7"  onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';" style="cursor:zoom-in;"/>
+    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" style="cursor:zoom-in;">
+      <img src="7.jpg" alt="Last Drop page 7" />
       <div class="portfolio-overlay">
         <p class="portfolio-title">Last Drop — Page 7</p>
         <p class="portfolio-year">MuseInk · Writer: Roach</p>
       </div>
     </div>
 
-    <div class="portfolio-item wide">
-      <img src="10.jpg" alt="Last Drop page 10"  onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';" style="cursor:zoom-in;"/>
+    <div class="portfolio-item wide" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" style="cursor:zoom-in;">
+      <img src="10.jpg" alt="Last Drop page 10" />
       <div class="portfolio-overlay">
         <p class="portfolio-title">Last Drop — Page 10</p>
         <p class="portfolio-year">MuseInk · Writer: Roach</p>
       </div>
     </div>
 
-    <div class="portfolio-item">
-      <img src="12.jpg" alt="Last Drop page 12"  onclick="document.getElementById('lightbox-img').src=this.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';" style="cursor:zoom-in;"/>
+    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" style="cursor:zoom-in;">
+      <img src="12.jpg" alt="Last Drop page 12" />
       <div class="portfolio-overlay">
         <p class="portfolio-title">Last Drop — Page 12</p>
         <p class="portfolio-year">MuseInk · Writer: Roach</p>
@@ -820,7 +821,7 @@
 
   <div class="portfolio-grid">
 
-    <div class="portfolio-item">
+    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" style="cursor:zoom-in;">
       <div class="img-placeholder">The Earworm — Cover<br>2025</div>
       <div class="portfolio-overlay">
         <p class="portfolio-title">The Earworm</p>
@@ -828,7 +829,7 @@
       </div>
     </div>
 
-    <div class="portfolio-item">
+    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" style="cursor:zoom-in;">
       <div class="img-placeholder">The Earworm — Interior Page<br>2025</div>
       <div class="portfolio-overlay">
         <p class="portfolio-title">The Earworm — Interior</p>
@@ -836,7 +837,7 @@
       </div>
     </div>
 
-    <div class="portfolio-item">
+    <div class="portfolio-item" onclick="var img=this.querySelector('img');if(img){document.getElementById('lightbox-img').src=img.src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}" style="cursor:zoom-in;">
       <div class="img-placeholder">Vega's Revenge<br>2025</div>
       <div class="portfolio-overlay">
         <p class="portfolio-title">Vega's Revenge</p>
